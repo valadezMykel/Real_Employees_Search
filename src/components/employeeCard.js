@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Image } from 'react-bootstrap';
+// import { searchValue } from './searchBar'
 
 
 
-export default function EmployeeCard() {
+export default function EmployeeCard(props) {
     const [error, setError] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
     const [employees, setEmployees] = useState([]);
@@ -30,7 +31,7 @@ export default function EmployeeCard() {
     } else {
         return (
         <>
-            {console.log(employees)}
+            {console.log(props.searchInput)}
             {employees.map(emp => (
                 <Card key={emp.login.uuid}>
                     <Card.Body>
