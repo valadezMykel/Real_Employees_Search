@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Image } from 'react-bootstrap';
 // import { searchValue } from './searchBar'
+import searchLogic from '../logic/searchLogic'
 
 
 
 export default function EmployeeCard(props) {
     const [error, setError] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
-    const [employees, setEmployees] = useState([]);
+    const [employees, setEmployees] = useState([])
+    const [empFiltered, setEmpFiltered] = useState([])
 
     useEffect(() => {
         fetch('https://randomuser.me/api/?results=10')
@@ -24,6 +26,13 @@ export default function EmployeeCard(props) {
         )
     }, [])
 
+    useEffect(
+        () => {
+            setEmpFiltered(searchLogic(employees, props.searchInput))
+        },
+        [props.searchInput]
+    )
+
     if (error) {
         return <div>Error: {error.message}</div>
     } else if (!isLoaded) {
@@ -31,8 +40,7 @@ export default function EmployeeCard(props) {
     } else {
         return (
         <>
-            {console.log(props.searchInput)}
-            {employees.map(emp => (
+            {empFiltered.map(emp => (
                 <Card key={emp.login.uuid}>
                     <Card.Body>
                         <h2>{emp.name.title} {emp.name.first} {emp.name.last}</h2>

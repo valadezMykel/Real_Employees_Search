@@ -7,12 +7,13 @@ import React, { useState }from 'react'
 
 function App() {
   const [searchInput, setSearchInput] = useState('')
+  
 
   return (
     <>
       <Navbar />
-      <Searchbar searchInput={searchInput} setSearchInput={setSearchInput}/>
-      <EmployeeCard searchInput={searchInput} setSearchInput={setSearchInput}/>
+      <Searchbar setSearchInput={setSearchInput}/>
+      <EmployeeCard searchInput={searchInput} />
     </>
   );
 }
