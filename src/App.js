@@ -1,8 +1,8 @@
-import Searchbar from './components/searchBar';
+// import Searchbar from './components/searchComponents/searchBar';
 import Navbar from './components/navbar';
 import EmployeeCard from './components/employeeCard';
-import React, { useState }from 'react'
-
+import React, { useState } from 'react'
+import Search from './components/search'
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Searchbar setSearchInput={setSearchInput}/>
+      <Search setSearchInput={setSearchInput}/>
       <EmployeeCard searchInput={searchInput} />
     </>
   );

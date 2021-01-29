@@ -1,5 +1,5 @@
 import React, { useRef }from 'react'
-import { Form } from 'react-bootstrap'
+import { Form, Dropdown } from 'react-bootstrap'
 
 
 
@@ -20,6 +20,9 @@ export default function SearchBar(props) {
                     <Form.Control type='text' ref={searchValRef}/>
                 </Form.Group>
             </Form>
+            <Dropdown>
+                <Dropdown.Item></Dropdown.Item>
+            </Dropdown>
         </>
     )
 }
