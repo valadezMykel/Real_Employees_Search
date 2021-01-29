@@ -1,22 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import SearchBar from './searchComponents/searchBar'
 import SearchTypeBtn from './searchComponents/searchTypeButton'
-import { Button } from 'react-bootstrap';
+import GenderToggle from './searchComponents/genderToogle'
+
 
 
 export default function Search(props) {
-    const [searchBarCount, setSearchBarCount] = useState(1);
 
-    function addSearchField() {
-        
-        setSearchBarCount(searchBarCount + 1)
+    function isGenderOrNot() {
+        if(props.activeSearchType === 'gender') {
+            return <GenderToggle setSearchInput={props.setSearchInput} />
+        } else {
+            return <SearchBar setSearchInput={props.setSearchInput}/>
+        }
     }
 
     return (
         <div>
-            { new Array(searchBarCount).fill(
-            <SearchBar setSearchInput={props.setSearchInput}/>)}
-            <Button onClick={addSearchField}>Add Search Field</Button>
+            <SearchTypeBtn activeSearchType={props.activeSearchType} setActiveSearchType={props.setActiveSearchType}/>
+            {isGenderOrNot()}
         </div>
     )
 }

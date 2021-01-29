@@ -7,13 +7,17 @@ import Search from './components/search'
 
 function App() {
   const [searchInput, setSearchInput] = useState('')
+  const [activeSearchType, setActiveSearchType] = useState('fname')
   
 
   return (
     <>
       <Navbar />
-      <Search setSearchInput={setSearchInput}/>
-      <EmployeeCard searchInput={searchInput} />
+      <Search 
+      setSearchInput={setSearchInput} 
+      setActiveSearchType={setActiveSearchType} 
+      activeSearchType={activeSearchType} />
+      <EmployeeCard searchInput={searchInput} activeSearchType={activeSearchType}/>
     </>
   );
 }
