@@ -1,4 +1,4 @@
-import React, { useRef }from 'react'
+import React, { useRef, useEffect }from 'react'
 import { Form } from 'react-bootstrap'
 
 
@@ -11,6 +11,10 @@ export default function SearchBar(props) {
     function handleChange(event) {
         props.setSearchInput(searchValRef.current.value)
     }
+
+    useEffect(() => {
+        searchValRef.current.value = '';
+    },[props.activeSearchType])
     
     return (
         <>

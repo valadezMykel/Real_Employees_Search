@@ -11,7 +11,7 @@ export default function Search(props) {
         if(props.activeSearchType === 'gender') {
             return <GenderToggle setSearchInput={props.setSearchInput} />
         } else {
-            return <SearchBar setSearchInput={props.setSearchInput}/>
+            return <SearchBar setSearchInput={props.setSearchInput} activeSearchType={props.activeSearchType}/>
         }
     }
 

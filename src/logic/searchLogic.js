@@ -1,6 +1,5 @@
 module.exports = (employeeArr, searchInput, activeSearchType) => {
 
-    console.log(employeeArr[0])
     switch(activeSearchType) {
 
         case 'fname':

@@ -17,7 +17,7 @@ export default function EmployeeCard(props) {
         .then(
             (results) => {
                 setEmployees(results.results)
-                setEmpFiltered(employees, props.searchInput, '')
+                setEmpFiltered(results.results, '', 'NOPE')
                 setIsLoaded(true)
             },
             (error) => {
@@ -31,7 +31,7 @@ export default function EmployeeCard(props) {
         () => {
             setEmpFiltered(searchLogic(employees, props.searchInput, props.activeSearchType))
         },
-        [props.searchInput]
+        [props.searchInput, props.activeSearchType, employees]
     )
 
     if (error) {
