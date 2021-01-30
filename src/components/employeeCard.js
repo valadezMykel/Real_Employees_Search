@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Image } from 'react-bootstrap';
-// import { searchValue } from './searchBar'
 import searchLogic from '../logic/searchLogic'
 
 
@@ -12,7 +11,7 @@ export default function EmployeeCard(props) {
     const [empFiltered, setEmpFiltered] = useState([])
 
     useEffect(() => {
-        fetch('https://randomuser.me/api/?results=10')
+        fetch('https://randomuser.me/api/?results=50')
         .then(res => res.json())
         .then(
             (results) => {
@@ -44,8 +43,9 @@ export default function EmployeeCard(props) {
             {empFiltered.map(emp => (
                 <Card key={emp.login.uuid}>
                     <Card.Body>
-                        <h2>{emp.name.title} {emp.name.first} {emp.name.last}</h2>
+                        <Card.Title>{emp.name.title} {emp.name.first} {emp.name.last}</Card.Title>
                         <Image src={emp.picture.medium} roundedCircle/>
+                        <Card.Text>{emp.location.postcode}</Card.Text>
                     </Card.Body>
                 </Card>
 
