@@ -45,7 +45,13 @@ export default function EmployeeCard(props) {
                     <Card.Body>
                         <Card.Title>{emp.name.title} {emp.name.first} {emp.name.last}</Card.Title>
                         <Image src={emp.picture.medium} roundedCircle/>
-                        <Card.Text>{emp.location.postcode}</Card.Text>
+                        <div style={{float: 'right'}}>
+                            <Card.Text>Postal Code: {emp.location.postcode}</Card.Text>
+                            <Card.Text>Email: {emp.email}</Card.Text>
+                            <Card.Text>Phone: {emp.phone}</Card.Text>
+                            <Card.Text>Gender: {emp.gender}</Card.Text>
+                        </div>
+
                     </Card.Body>
                 </Card>
 
